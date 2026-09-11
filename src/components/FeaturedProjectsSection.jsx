@@ -1,26 +1,8 @@
 import { ArrowRight, Calendar, MapPin, Users, User, Mic2, Truck, Flower2, UtensilsCrossed } from 'lucide-react';
 import imgTest from '../assets/images/imgTest.jpg';
 
-export interface ProjectCategory {
-  name: string;
-  type: 'entertainment' | 'flower' | 'logistics' | 'venue';
-}
-
-export interface FeaturedProject {
-  id: string | number;
-  badge: string;
-  title: string;
-  companyName: string;
-  date: string;
-  location: string;
-  guests: string;
-  categories: ProjectCategory[];
-  description: string;
-  image: string;
-}
-
 export default function FeaturedProjectsSection() {
-  const projects: FeaturedProject[] = [
+  const projects = [
     {
       id: 1,
       badge: 'VĂN HÓA - GIẢI TRÍ',
@@ -88,7 +70,7 @@ export default function FeaturedProjectsSection() {
     },
   ];
 
-  const renderCategoryIcon = (type: ProjectCategory['type']) => {
+  const renderCategoryIcon = (type) => {
     switch (type) {
       case 'entertainment':
         return <Mic2 className="w-3 h-3 text-purple-600 shrink-0" />;

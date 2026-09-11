@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Search, Users, Star, CalendarCheck, MapPin } from 'lucide-react';
 
 export default function HeroSection() {
@@ -12,7 +12,7 @@ export default function HeroSection() {
     'LED & Trình chiếu',
   ];
 
-  const handleSearch = (e: React.FormEvent) => {
+  const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
       console.log('Search query:', searchQuery);

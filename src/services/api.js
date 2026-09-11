@@ -16,12 +16,9 @@ export const getSupplierCompanies = async (customParams = {}) => {
     },
   });
 
-  return (
-    response.data?.data?.data ||
-    response.data?.data?.companies ||
-    response.data?.data ||
-    response.data
-  );
+  return response.data?.data?.data || [];
 };
+
+
 
 export default api;

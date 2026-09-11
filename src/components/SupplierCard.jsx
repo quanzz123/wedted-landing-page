@@ -1,27 +1,7 @@
 import { Star, MapPin, CheckCircle2, ArrowRight, Tag } from 'lucide-react';
 
-export interface CompanySupplier {
-  id: string | number;
-  name: string;
-  description?: string;
-  website?: string | null;
-  address?: string;
-  provinceName?: string;
-  categoryNames?: string;
-  categoryIcon?: string;
-  rating?: string | number;
-  reviewCount?: number;
-  coverImageUrl?: string;
-  slug?: string;
-  status?: string;
-}
-
-interface SupplierCardProps {
-  supplier: CompanySupplier;
-}
-
-export default function SupplierCard({ supplier }: SupplierCardProps) {
-  // Chuyển chuỗi categoryNames ("Hoa & Decor, Giải trí & Nhân sự...") thành mảng các danh mục
+export default function SupplierCard({ supplier }) {
+  
   const categories = supplier.categoryNames
     ? supplier.categoryNames.split(',').map((cat) => cat.trim()).filter(Boolean)
     : [];
@@ -42,8 +22,8 @@ export default function SupplierCard({ supplier }: SupplierCardProps) {
             className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
             loading="lazy"
             onError={(e) => {
-              // Dự phòng nếu link ảnh bị lỗi
-              (e.target as HTMLImageElement).src =
+              
+              e.target.src =
                 'https://placehold.co/400x300/f8fafc/64748b?text=WedTech+Supplier';
             }}
           />
@@ -102,7 +82,7 @@ export default function SupplierCard({ supplier }: SupplierCardProps) {
                       alt=""
                       className="w-3 h-3 object-contain shrink-0"
                       onError={(e) => {
-                        (e.target as HTMLElement).style.display = 'none';
+                        e.target.style.display = 'none';
                       }}
                     />
                   ) : (

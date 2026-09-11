@@ -1,19 +1,4 @@
-export interface ReviewItem {
-  id: string | number;
-  authorName: string;
-  authorRole?: string;
-  authorAvatar?: string;
-  rating: number;
-  content: string;
-  date?: string;
-  companyName?: string;
-}
-
-interface ReviewsSectionProps {
-  reviews?: ReviewItem[];
-}
-
-export default function ReviewsSection({ reviews = [] }: ReviewsSectionProps) {
+export default function ReviewsSection({ reviews = [] }) {
   return (
     <section className="bg-[#F8F9FA] py-12 sm:py-16 lg:py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,4 +67,3 @@ export default function ReviewsSection({ reviews = [] }: ReviewsSectionProps) {
     </section>
   );
 }
-

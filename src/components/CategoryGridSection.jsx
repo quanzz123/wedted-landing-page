@@ -1,14 +1,7 @@
 import hoaDecorIcon from '../assets/images/hoa-decor.svg';
 
-export interface CategoryGridItem {
-  id: string | number;
-  name: string;
-  bg: string;
-  slug: string;
-}
-
 export default function CategoryGridSection() {
-  const categories: CategoryGridItem[] = [
+  const categories = [
     {
       id: 1,
       name: 'Hoa & Decor',

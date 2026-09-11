@@ -1,25 +1,8 @@
 import { ArrowRight, Star, User, Flower2, Camera, Mic2, UtensilsCrossed } from 'lucide-react';
 import imgTest from '../assets/images/imgTest.jpg';
 
-export interface ProductCategory {
-  name: string;
-  type: 'flower' | 'media' | 'entertainment' | 'venue';
-}
-
-export interface FeaturedProduct {
-  id: string | number;
-  title: string;
-  supplierName: string;
-  rating: number;
-  reviewCount: number;
-  categories: ProductCategory[];
-  price: string;
-  moq: string;
-  image: string;
-}
-
 export default function FeaturedProductsSection() {
-  const products: FeaturedProduct[] = [
+  const products = [
     {
       id: 1,
       title: 'Nhà hàng Tự Do - Khách sạn Viễn Đông',
@@ -78,7 +61,7 @@ export default function FeaturedProductsSection() {
     },
   ];
 
-  const renderCategoryIcon = (type: ProductCategory['type']) => {
+  const renderCategoryIcon = (type) => {
     switch (type) {
       case 'flower':
         return <Flower2 className="w-3 h-3 text-pink-500 shrink-0" />;
