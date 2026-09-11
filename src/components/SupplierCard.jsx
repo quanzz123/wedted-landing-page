@@ -49,7 +49,7 @@ export default function SupplierCard({ supplier }) {
           {/* Tên nhà cung cấp */}
           <h3
             title={supplier.name}
-            className="font-bold text-neutral-900 text-base sm:text-[17px] leading-snug line-clamp-2 min-h-[46px] mb-2 group-hover:text-[#FF3366] transition-colors"
+            className="font-bold text-neutral-900 text-base sm:text-[18px] leading-snug line-clamp-2 min-h-[46px] mb-2 group-hover:text-[#FF3366] transition-colors"
           >
             {supplier.name}
           </h3>
@@ -99,7 +99,7 @@ export default function SupplierCard({ supplier }) {
           </div>
 
           {/* Mô tả ngắn */}
-          <p className="text-xs text-neutral-500 leading-relaxed line-clamp-3 mb-5 min-h-[48px]">
+          <p className="text-sm text-neutral-500 leading-relaxed line-clamp-3 mb-5 min-h-[48px]">
             {supplier.description || 'Đơn vị cung cấp dịch vụ cưới và sự kiện chuyên nghiệp.'}
           </p>
         </div>

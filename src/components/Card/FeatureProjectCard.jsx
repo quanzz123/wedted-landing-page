@@ -108,7 +108,7 @@ export default function FeatureProjectCard({ project }) {
                     </div>
 
                     {/* Description */}
-                    <p className="text-xs text-neutral-500 leading-relaxed line-clamp-2 sm:line-clamp-3 mb-5 min-h-[44px]">
+                    <p className="text-sm text-neutral-500 leading-relaxed line-clamp-2 sm:line-clamp-3 mb-5 min-h-[44px]">
                         {project.description}
                     </p>
                 </div>

@@ -24,7 +24,7 @@ export default function CategoryCard({ category }) {
             </div>
 
             {/* Category Name */}
-            <span className="font-bold text-neutral-800 text-sm sm:text-base group-hover:text-[#FF3366] transition-colors leading-snug">
+            <span className="font-bold text-neutral-800 text-sm sm:text-lg group-hover:text-[#FF3366] transition-colors leading-snug">
                 {category.name}
             </span>
         </a>

@@ -99,7 +99,7 @@ export default function AgencyCard({ agency }) {
                     </div>
 
                     {/* Description */}
-                    <p className="text-xs text-neutral-500 leading-relaxed line-clamp-3 mb-5 min-h-[48px]">
+                    <p className="text-sm text-neutral-500 leading-relaxed line-clamp-3 mb-5 min-h-[48px]">
                         {agency.description}
                     </p>
                 </div>

@@ -38,7 +38,7 @@ export default function CategoryGridSection() {
       <div className="max-w-[1497px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header (Centered) */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
-          <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 tracking-tight mb-3">
+          <h2 className="text-3xl sm:text-5xl font-bold text-neutral-900 tracking-tight mb-3">
             Danh mục ngành
           </h2>
           <p className="text-sm sm:text-base text-neutral-500 leading-relaxed">

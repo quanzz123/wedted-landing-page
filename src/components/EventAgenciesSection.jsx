@@ -41,7 +41,7 @@ export default function EventAgenciesSection() {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-10 gap-4">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold text-neutral-900 tracking-tight">
               Đơn vị sự kiện chất lượng
             </h2>
             <p className="text-sm sm:text-base text-neutral-500 mt-1">
