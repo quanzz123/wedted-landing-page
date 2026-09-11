@@ -1,4 +1,4 @@
-import { Star, MapPin, CheckCircle2, ArrowRight, Tag,CircleStar } from 'lucide-react';
+import { Star, MapPin, ArrowRight, Tag, CircleStar } from 'lucide-react';
 
 export default function SupplierCard({ supplier }) {
   
