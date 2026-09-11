@@ -4,6 +4,8 @@ Giao diện Landing Page hiện đại dành cho nền tảng B2B kết nối c�
 
 Dự án được xây dựng với **React 19**, **Vite**, **Tailwind CSS v4** và kết nối trực tiếp với hệ thống Backend API của WedTech.
 
+> 🔗 **Live Website:** [https://wedted-landing-page.vercel.app/](https://wedted-landing-page.vercel.app/)
+
 ---
 
 ## 🚀 Công nghệ sử dụng (Tech Stack)
@@ -96,9 +98,9 @@ Thư mục xuất bản tĩnh **`dist/`** sẽ được tạo sẵn sàng để 
 
 ---
 
-## 🌐 Hướng dẫn Triển khai (Deployment)
+## 🌐 Live Demo & Triển khai (Deployment)
 
-* **Vercel (Khuyên dùng):** Kết nối repository GitHub với Vercel. Framework sẽ tự động nhận diện `Vite`, thiết lập build command `vite build` và thư mục đầu ra `dist`.
-* **Netlify:** Kéo thả trực tiếp thư mục `dist` vào [app.netlify.com/drop](https://app.netlify.com/drop) hoặc liên kết repository Git.
-* **VPS / Hosting riêng (Nginx / Apache / cPanel):** Tải toàn bộ nội dung trong thư mục `dist` lên thư mục gốc của trang web (`public_html` hoặc `/var/www/html`).
+Dự án đã được triển khai chính thức trên Vercel:
+
+🔗 **Website trực tiếp:** [https://wedted-landing-page.vercel.app/](https://wedted-landing-page.vercel.app/)
 
