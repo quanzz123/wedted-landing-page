@@ -1,7 +1,7 @@
 export default function CtaBanner() {
   return (
-    <section className="bg-white py-12 sm:py-16 lg:py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#FDFCFB] py-12 sm:py-16 lg:py-20">
+      <div className="max-w-[1497px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Gradient Banner Card */}
         <div className="relative overflow-hidden rounded-[28px] sm:rounded-[36px] bg-gradient-to-r from-[#EB1B68] via-[#6353A2] to-[#00A3DF] shadow-[0_20px_50px_rgba(0,163,223,0.15)] px-6 py-12 sm:px-12 sm:py-16 md:py-20 text-center">
           {/* Subtle background ambient overlay */}

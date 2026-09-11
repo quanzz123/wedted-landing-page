@@ -2,13 +2,9 @@ import { ArrowRight, Star, User, Tag } from 'lucide-react';
 import imgTest from '../../assets/images/imgTest.jpg';
 
 export default function FeatureProductCard({ product }) {
-    const isPriceEmpty =
-      product.price == null ||
-      product.price === '' ||
-      product.price === 0 ||
-      product.price === '0';
 
-    const price = isPriceEmpty
+
+    const price = product.price == null || product.price === '' || product.price === 0 || product.price === '0'
       ? 'Liên hệ'
       : `Từ ${Number(product.price).toLocaleString('vi-VN')} ${product.currency || 'VND'}`;
 
@@ -21,12 +17,12 @@ export default function FeatureProductCard({ product }) {
             className="group bg-white rounded-2xl border border-neutral-200/80 overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:border-neutral-300 hover:-translate-y-1"
         >
             {/* Product Image Area */}
-            <div className="relative h-48 sm:h-52 w-full bg-neutral-50 overflow-hidden flex items-center justify-center p-3 border-b border-neutral-100">
+            <div className="relative h-48 sm:h-52 w-full bg-neutral-50 overflow-hidden flex items-center justify-center  border-b border-neutral-100">
                 {product.imageUrl ? (
                     <img
                         src={product.imageUrl}
                         alt={product.title}
-                        className="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-full object-covertransition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
                         onError={(e) => {
                             e.target.src = imgTest;

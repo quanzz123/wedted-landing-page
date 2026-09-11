@@ -50,4 +50,9 @@ export const getProducts = async (customParams = {}) => {
   return response.data?.data?.data || [];
 };
 
+export const getCategories  =  async() => {
+  const response = await api.get('/categories');
+  return response.data?.data || [];
+}
+
 export default api;

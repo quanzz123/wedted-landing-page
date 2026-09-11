@@ -1,4 +1,4 @@
-import { Star, MapPin, CheckCircle2, ArrowRight, Tag } from 'lucide-react';
+import { Star, MapPin, CheckCircle2, ArrowRight, Tag,CircleStar } from 'lucide-react';
 
 export default function SupplierCard({ supplier }) {
   
@@ -14,12 +14,12 @@ export default function SupplierCard({ supplier }) {
   return (
     <div className="group bg-white rounded-2xl border border-neutral-200/80 overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:border-neutral-300 hover:-translate-y-1">
       {/* Ảnh bìa / Logo nhà cung cấp */}
-      <div className="relative h-44 sm:h-48 w-full bg-neutral-50 overflow-hidden flex items-center justify-center p-3 border-b border-neutral-100">
+      <div className="relative h-44 sm:h-48 w-full bg-neutral-100 overflow-hidden flex items-center justify-center border-b border-neutral-100">
         {supplier.coverImageUrl ? (
           <img
             src={supplier.coverImageUrl}
             alt={supplier.name}
-            className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             loading="lazy"
             onError={(e) => {
               
@@ -36,8 +36,8 @@ export default function SupplierCard({ supplier }) {
 
         {/* Huy hiệu Đã xác thực */}
         {isVerified && (
-          <div className="absolute top-2.5 right-2.5 inline-flex items-center gap-1 bg-[#0070F3] text-white text-[10px] sm:text-[11px] font-medium px-2.5 py-0.5 rounded-full shadow-sm z-10">
-            <CheckCircle2 className="w-3 h-3" />
+          <div className="absolute top-2.5 right-2.5 inline-flex items-center gap-1 bg-[#0070F3] text-white text-[10px] sm:text-[11px] font-medium px-2.5 py-0.5 rounded shadow-sm z-10">
+            <CircleStar className="w-3 h-3" />
             <span>Đã xác thực</span>
           </div>
         )}

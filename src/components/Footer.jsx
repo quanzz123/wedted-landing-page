@@ -33,7 +33,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-white border-t border-neutral-100/80 pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1497px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row justify-between gap-10 lg:gap-16">
           {/* Brand & Mission Column */}
           <div className="max-w-sm">
