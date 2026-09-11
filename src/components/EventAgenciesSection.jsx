@@ -1,6 +1,6 @@
 import AgencyCard from './Card/AgencyCard';
 import { useEffect, useState } from 'react';
-import { ArrowRight, AlertCircle, RefreshCw } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { getSupplierCompanies } from '../services/api';
 export default function EventAgenciesSection() {
 

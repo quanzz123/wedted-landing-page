@@ -19,6 +19,35 @@ export const getSupplierCompanies = async (customParams = {}) => {
   return response.data?.data?.data || [];
 };
 
+export const getProjects = async (customParams = {}) => {
+  const response = await api.get('/projects', {
+    params: {
+      page: 1,
+      limit: 4,
+      type: 'SUPPLIER',
+      sortBy: 'rating',
+      isFeatured: true,
+      distinctCompany: true,
+      ...customParams,
+    },
+  });
 
+  return response.data?.data?.data || [];
+};
+
+export const getProducts = async (customParams = {}) => {
+  const response = await api.get('/products', {
+    params: {
+      page: 1,
+      limit: 4,
+      sortBy: 'rating',
+      isFeatured: true,
+      distinctCompany: true,
+      ...customParams,
+    },
+  });
+
+  return response.data?.data?.data || [];
+};
 
 export default api;

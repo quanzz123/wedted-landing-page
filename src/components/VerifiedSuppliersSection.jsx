@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowRight, AlertCircle, RefreshCw } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import SupplierCard from './SupplierCard';
 import { getSupplierCompanies } from '../services/api';
 
@@ -9,7 +9,7 @@ export default function VerifiedSuppliersSection() {
   const [error, setError] = useState(null);
 
   const loadData = () => {
-    getSupplierCompanies({page: 2})
+    getSupplierCompanies({page: 1})
       .then((data) => {
         console.log('Dữ liệu API trả về:', data);
         setSuppliers(data || []);

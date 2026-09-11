@@ -1,89 +1,37 @@
-import { ArrowRight, Calendar, MapPin, Users, User, Mic2, Truck, Flower2, UtensilsCrossed } from 'lucide-react';
-import imgTest from '../assets/images/imgTest.jpg';
+import { ArrowRight } from 'lucide-react';
+import FeatureProjectCard from './Card/FeatureProjectCard';
+import { getProjects } from '../services/api';
+import { useEffect, useState } from 'react';
 
 export default function FeaturedProjectsSection() {
-  const projects = [
-    {
-      id: 1,
-      badge: 'VĂN HÓA - GIẢI TRÍ',
-      title: 'Công trình Hang Ngọc Rồng',
-      companyName: 'CÔNG TY TNHH ĐẦU TƯ THƯƠNG MẠI ...',
-      date: '09/12/2025',
-      location: 'Quảng Ninh',
-      guests: '2500 khách mời',
-      categories: [
-        { name: 'GIẢI TRÍ & NHÂN SỰ BIỂU DIỄN', type: 'entertainment' },
-        { name: 'HẬU CẦN & VẬN HÀNH', type: 'logistics' },
-      ],
-      description:
-        'HANG NGỌC RỒNG – QUẢNG NINH Đồng bộ âm thanh E3 Audio Tọa lạc trong quần...',
-      image: imgTest,
-    },
-    {
-      id: 2,
-      badge: 'VĂN HÓA - GIẢI TRÍ',
-      title: 'VinhVerse Concert 2026',
-      companyName: 'CÔNG TY TNHH THƯƠNG MẠI - TỔ CH...',
-      date: '03/05/2026',
-      location: 'Nghệ An',
-      guests: '2500 khách mời',
-      categories: [
-        { name: 'HOA & DECOR', type: 'flower' },
-        { name: 'GIẢI TRÍ & NHÂN SỰ BIỂU DIỄN', type: 'entertainment' },
-      ],
-      description:
-        'TKK đồng hành với vai trò nhà cung cấp chính thiết bị và vật liệu kỹ thuật cho...',
-      image: imgTest,
-    },
-    {
-      id: 3,
-      badge: 'GALA DINNER',
-      title: 'Đam mê & Hội tụ',
-      companyName: 'CÔNG TY TNHH GREEN SOUND GROUP',
-      date: '16/06/2026',
-      location: 'Nghệ An',
-      guests: '1000 khách mời',
-      categories: [
-        { name: 'HOA & DECOR', type: 'flower' },
-        { name: 'GIẢI TRÍ & NHÂN SỰ BIỂU DIỄN', type: 'entertainment' },
-      ],
-      description:
-        'Không chỉ là một buổi setup thông thường, đây là nơi G.Sound cùng những người anh...',
-      image: imgTest,
-    },
-    {
-      id: 4,
-      badge: 'TIỆC CƯỚI',
-      title: 'Báu vật miền nhiệt đới',
-      companyName: 'CÔNG TY CỔ PHẦN DELAVU HOLDING',
-      date: '24/06/2025',
-      location: 'Nghệ An',
-      guests: '2500 khách mời',
-      categories: [
-        { name: 'HOA & DECOR', type: 'flower' },
-        { name: 'TIỆC & ĐỊA ĐIỂM', type: 'venue' },
-        { name: 'GIẢI TRÍ & NHÂN SỰ BIỂU DIỄN', type: 'entertainment' },
-      ],
-      description:
-        'Siêu đám cưới gây chấn động truyền thông tại Diễn Châu, Nghệ An với tổng mức đầu t...',
-      image: imgTest,
-    },
-  ];
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const renderCategoryIcon = (type) => {
-    switch (type) {
-      case 'entertainment':
-        return <Mic2 className="w-3 h-3 text-purple-600 shrink-0" />;
-      case 'flower':
-        return <Flower2 className="w-3 h-3 text-pink-500 shrink-0" />;
-      case 'logistics':
-        return <Truck className="w-3 h-3 text-emerald-600 shrink-0" />;
-      case 'venue':
-        return <UtensilsCrossed className="w-3 h-3 text-amber-600 shrink-0" />;
-      default:
-        return null;
-    }
+  const loadData = () => {
+    getProjects()
+      .then((data) => {
+        console.log('Dữ liệu API trả về:', data);
+        setProjects(data || []);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error('Error fetching projects:', err);
+        const message = 'Lỗi kết nối tới Backend';
+        setError(message);
+        setLoading(false);
+      });
   };
+
+  const handleRetry = () => {
+    setLoading(true);
+    setError(null);
+    loadData();
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
 
   return (
     <section className="bg-white py-12 sm:py-16">
@@ -107,94 +55,39 @@ export default function FeaturedProjectsSection() {
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
-
-        {/* Projects Grid (4 columns on desktop, 2 on tablet, 1 on mobile) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="group bg-white rounded-2xl border border-neutral-200/80 overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:border-neutral-300 hover:-translate-y-1"
+        {/* Thông báo lỗi  */}
+        {error && (
+          <div className="mb-6 p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-sm">
+            {error}
+            <button
+              type="button"
+              onClick={handleRetry}
+              className="ml-2 font-semibold text-amber-900 hover:underline cursor-pointer"
             >
-              {/* Top Banner with Badge */}
-              <div className="relative h-44 sm:h-48 w-full bg-neutral-100 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
+              Tải lại
+            </button>
+          </div>
+        )}
+        {/* Projects Grid (4 columns on desktop, 2 on tablet, 1 on mobile) */}
+        {loading ? (
+          <div className="py-20 text-center text-neutral-500">
+            Đang tải dữ liệu...
+          </div>
+        ) : (
 
-                {/* Event Type Badge (Top-Left) */}
-                <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-xs text-[#FF3366] text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm uppercase tracking-wider">
-                  {project.badge}
-                </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {projects.length > 0 ? (
+              projects.map((projects) => (
+                <FeatureProjectCard key={projects.id} project={projects} />
+              ))
+            ) : (
+              <div className="col-span-full text-center py-10 text-neutral-400 text-sm">
+                Chưa có dữ liệu nhà cung cấp nào.
               </div>
+            )}
 
-              {/* Card Body */}
-              <div className="p-4 sm:p-5 flex flex-col flex-1 justify-between">
-                <div>
-                  {/* Project Title */}
-                  <h3
-                    title={project.title}
-                    className="font-bold text-neutral-900 text-base sm:text-[17px] leading-snug line-clamp-1 min-h-[26px] mb-2 group-hover:text-[#FF3366] transition-colors"
-                  >
-                    {project.title}
-                  </h3>
-
-                  {/* Company Name */}
-                  <div className="flex items-center gap-1.5 text-xs font-semibold text-neutral-700 tracking-tight mb-2.5">
-                    <User className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
-                    <span className="truncate">{project.companyName}</span>
-                  </div>
-
-                  {/* Date, Location, Guests Meta */}
-                  <div className="space-y-1 text-xs text-neutral-600 mb-3">
-                    <div className="flex items-center gap-3">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
-                        <span>{project.date}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <MapPin className="w-3.5 h-3.5 text-[#00AEEF] shrink-0" />
-                        <span>{project.location}</span>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Users className="w-3.5 h-3.5 text-neutral-400 shrink-0" />
-                      <span>{project.guests}</span>
-                    </div>
-                  </div>
-
-                  {/* Category Tags */}
-                  <div className="flex flex-col gap-1.5 mb-3 min-h-[52px]">
-                    {project.categories.map((cat, idx) => (
-                      <div
-                        key={idx}
-                        className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-neutral-100 text-neutral-700 text-[10px] sm:text-[11px] font-semibold tracking-wider uppercase w-fit max-w-full"
-                      >
-                        {renderCategoryIcon(cat.type)}
-                        <span className="truncate">{cat.name}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-xs text-neutral-500 leading-relaxed line-clamp-2 sm:line-clamp-3 mb-5 min-h-[44px]">
-                    {project.description}
-                  </p>
-                </div>
-
-                {/* CTA Button */}
-                <a
-                  href={`#project-${project.id}`}
-                  className="w-full py-2.5 px-4 rounded-xl bg-[#FF3366] hover:bg-[#F22459] active:scale-[0.98] text-white font-bold text-xs sm:text-[13px] tracking-wider uppercase flex items-center justify-center shadow-[0_4px_12px_rgba(255,51,102,0.25)] hover:shadow-[0_6px_16px_rgba(255,51,102,0.35)] transition-all cursor-pointer"
-                >
-                  XEM CHI TIẾT
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
+          </div>
+        )}
       </div>
     </section>
   );

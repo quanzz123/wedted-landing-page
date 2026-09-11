@@ -1,5 +1,5 @@
-import { ArrowRight, Star, MapPin, Briefcase, Mic2, Flower2 } from 'lucide-react';
-
+import { ArrowRight, Star, MapPin, Briefcase, Tag } from 'lucide-react';
+import imgTest from '../../assets/images/imgTest.jpg';
 
 export default function AgencyCard({ agency }) {
 
@@ -8,7 +8,6 @@ export default function AgencyCard({ agency }) {
         : [];
 
     const ratingValue = parseFloat(String(agency.rating ?? '10.0')) || 10.0;
-    const reviewCount = agency.reviewCount ?? 0;
     const location = agency.provinceName || 'Toàn quốc';
     return (
 
@@ -26,7 +25,7 @@ export default function AgencyCard({ agency }) {
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
                         onError={(e) => {
-                            e.target.src = './assets/images/imgTest.jpg';
+                            e.target.src = imgTest;
                         }}
                     />
                 ):(
