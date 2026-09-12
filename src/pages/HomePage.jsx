@@ -8,12 +8,13 @@ import CategoryGridSection from '../components/CategoryGridSection';
 import CtaBanner from '../components/CtaBanner';
 import ReviewsSection from '../components/ReviewsSection';
 import Footer from '../components/Footer';
+import BottomNav from '../components/BottomNav';
 
 export default function HomePage() {
   return (
     <div className="home-page">
       <Header />
-      <main>
+      <main className="pb-16 md:pb-0">
         <HeroSection />
         <VerifiedSuppliersSection />
         <EventAgenciesSection />
@@ -24,6 +25,8 @@ export default function HomePage() {
         <ReviewsSection />
       </main>
       <Footer />
+      <BottomNav />
     </div>
   );
 }
+
